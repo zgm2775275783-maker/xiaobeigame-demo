@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>寿司消除</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main id="game" class="game-shell" aria-label="寿司消除 H5 游戏">
+      <section class="top-bar" aria-label="游戏状态">
+        <div class="stat stat-level">
+          <span>关卡</span>
+          <strong id="levelLabel">1</strong>
+        </div>
+        <div class="stat score-stat">
+          <span>分数</span>
+          <strong id="scoreLabel">0</strong>
+        </div>
+        <div class="stat stat-best">
+          <span>榜单</span>
+          <strong id="bestLabel">0</strong>
+        </div>
+        <button id="soundBtn" class="toggle-btn" type="button" aria-pressed="true" aria-label="音效">
+          <span aria-hidden="true">♪</span>
+          <b>音效</b>
+        </button>
+        <button id="vibrateBtn" class="toggle-btn" type="button" aria-pressed="true" aria-label="震动">
+          <span aria-hidden="true">◎</span>
+          <b>震动</b>
+        </button>
+      </section>
+
+      <section class="plate-panel" aria-label="寿司盘">
+        <div class="panel-heading">
+          <h1>寿司盘</h1>
+          <span id="levelName" class="level-name">试营业</span>
+        </div>
+        <div id="board" class="plate-grid" aria-label="6 乘 6 寿司盘"></div>
+      </section>
+
+      <section class="service-panel" aria-label="出餐区">
+        <div class="orders-column">
+          <div class="panel-heading compact">
+            <h2>今日待出餐</h2>
+            <span id="remainingLabel">0</span>
+          </div>
+          <div id="orders" class="orders-grid" aria-label="今日待出餐列表"></div>
+          <div class="tool-row" aria-label="道具">
+            <button id="undoBtn" class="tool-btn" type="button"></button>
+            <button id="rotateBtn" class="tool-btn" type="button"></button>
+            <button id="restartBtn" class="tool-btn" type="button"></button>
+          </div>
+        </div>
+
+        <aside class="tray-column" aria-label="拖进盘子">
+          <div class="panel-heading compact">
+            <h2>拖进盘子</h2>
+          </div>
+          <button id="tray" class="tray" type="button" aria-label="当前寿司组合"></button>
+          <p id="message" class="message" aria-live="polite"></p>
+        </aside>
+      </section>
+    </main>
+
+    <div id="resultModal" class="modal" hidden>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+        <h2 id="resultTitle">完成</h2>
+        <p id="resultText"></p>
+        <div class="modal-actions">
+          <button id="retryBtn" class="secondary-action" type="button">重来</button>
+          <button id="nextBtn" class="primary-action" type="button">下一关</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
